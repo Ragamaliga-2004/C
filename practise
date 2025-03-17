@@ -1,0 +1,28 @@
+Input:
+s = aaaabbbccc
+Output: a4b3c3
+Explanation: a repeated 4 times consecutively b 3 times, c also 3 times.
+
+#include <stdio.h>
+#include <string.h>
+int main() 
+{
+    char s[100];
+    int count = 1;
+    scanf("%s", s);
+    int len = strlen(s);
+    for (int i = 0; i < len; i++)
+    {
+        printf("%c", s[i]);
+        while (i < len - 1 && s[i] == s[i + 1]) 
+        {
+            count++;
+            i++;
+        }
+        printf("%d", count);
+        count = 1; 
+    }
+    printf("\n");
+    return 0;
+}
+
